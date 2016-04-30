@@ -14,5 +14,4 @@ app.service('Transaction', function($http, $q) {
   this.create = newTransaction => {
     return $http.post('/api/transactions', newTransaction);
   };
-
 });

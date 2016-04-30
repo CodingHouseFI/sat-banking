@@ -2,6 +2,8 @@
 
 <button class="btn btn-default btn-lg" ui-sref='newTransaction'>Add Transaction</button>
 
+<h3>Balance: {{balance | currency}}</h3>
+
 <table class="table">
   <thead>
     <tr>
@@ -23,6 +25,14 @@
       </td>
     </tr>
   </tbody>
+  <tfoot>
+    <tr>
+      <td></td>
+      <td>TOTALS:</td>
+      <td>{{totalCredit | currency}}</td>
+      <td>{{totalDebit | currency}}</td>
+    </tr>
+  </tfoot>
 </table>
 
 
