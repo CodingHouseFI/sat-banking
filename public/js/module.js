@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('routerApp', ['ui.router', 'oitozero.ngSweetAlert']);
+var app = angular.module('bankingApp', ['ui.router', 'ui.bootstrap', 'oitozero.ngSweetAlert']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -10,10 +10,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/html/home.html',
       controller: 'homeCtrl'
     })
-    .state('list', {
-      url: '/list',
-      templateUrl: '/html/list.html',
-      controller: 'listCtrl'
+    .state('account', {
+      url: '/account',
+      templateUrl: '/html/account.html',
+      controller: 'accountCtrl',
+      resolve: {
+        transactions: function(Transaction) {
+          return Transaction.getAll();
+        }
+      }
+    })
+    .state('newTransaction', {
+      url: '/newTransaction',
+      templateUrl: '/html/newTransaction.html',
+      controller: 'newTransactionCtrl'
     })
 
   $urlRouterProvider.otherwise('/');
